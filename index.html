@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css" />
 </head>
+
 <body>
-    
+    <header class="header__header">
+        <h1>🌤 Weather Report</h1>
+        <span> 📍 For the lovely city of 
+            <span id="headerCityName" class="header__city-name"></span></span>
+    </header>
+    <section class="temperature__section">
+        <h2>Temperature</h2>
+        <ul class="temperature__content">
+            <ul class="temperature__controls">
+                <span id="increaseTempControl">⬆️</span>
+                <span id="decreaseTempControl">⬇️</span>
+            </ul>
+            <span id="tempValue"></span>
+            <button id="realWeatherButton"> Get Real Weather</button>
+            <span id="realTemp"></span>
+        </section>
+    </ul>
+    </section>
+    <section class="sky__section">
+        <h2>Sky</h2>
+        <select id="skySelect">
+            <option>Sunny</option>
+            <option>Cloudy</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+        </select>
+    </section>
+
+    <section class="city-name__section">
+        <h2>City Name</h2>
+        <input type="text" id="cityNameInput" value="Boulder" />
+        <button id="cityNameReset" class="city-name__reset-btn">Reset</button>
+    </section>
+
+    <section class="garden__section">
+        <h2>Weather Garden</h2>
+        <ul id="gardenContent" class="garden__content">
+            <ul id="sky"></ul>
+            <ul id="landscape"></ul>
+        </ul>
+    </section>
+    <!-- <script src="index.js"></script> -->
+    <script src="src/index.js"></script>
+    <script>src="./node_modules/axios/dist/axios./min.js"</script>
 </body>
+
 </html>
+
+<!-- <body>
+<main>
+    <h1>🦀 Welcome to my Crab Fan Site 🦀</h1>
+    <p>Here is my website where I post interesting facts about crabs.</p>
+
+    <section>
+    <button id="addCrabButton">Add Crab</button>
+    </section>
+
+    <section id="crabContainer">
+    <h2 id="crabCount">Crab Count: 0</h2>
+
+    </section>
+</main>
+<script src="src/index.js"></script>
+</body>
+</html> -->
