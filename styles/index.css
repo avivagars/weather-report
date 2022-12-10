@@ -59,7 +59,8 @@
   .city-name__section {
     border-radius: 8px;
     padding: 2rem;
-    background-color: rgb(204, 220, 221);
+    background-color: rgb(2, 3, 3);
+    color: whitesmoke;
     opacity: 80%;
     display: inline-block;
     /* display: grid; */
@@ -184,7 +185,7 @@
   }
   
   .yellow {
-    color: gold;
+    color: rgb(243, 222, 102);
   }
   
   .yellow-green {

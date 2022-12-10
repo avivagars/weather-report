@@ -1,7 +1,7 @@
 
 
 const state = {
-    cityName: "Boulder",
+    city: "Boulder",
     temp: 55,
     lat: 40.0149856,
     lon: -105.270545,
@@ -40,8 +40,10 @@ const getWeather = () => {
     })
     .then((response) => {
         const weather = response.data;
-        state.temp = Math.round(convertKtoF(weather.current.temp));
-        formatTempAndGarden();
+        state.temp = Math.round(convertKtoF(weather.main.temp));
+        tempValue.textContent = state.temp;
+        updateTemp(state.temp)
+        updateGarden(state.temp);
     })
     .catch((error) => {
         console.log('Error getting the weather:', error);
@@ -77,6 +79,7 @@ const updateCityName = () => {
     const inputName = document.getElementById("cityNameInput").value;
     const headerCityName = document.getElementById("headerCityName");
     headerCityName.textContent = inputName;
+    state.city = inputName;
 };
 
 const resetCityName = () => {
@@ -85,10 +88,6 @@ const resetCityName = () => {
     updateCityName();
 };
 
-// const getRealWeather = () => {
-//     const realWeatherButton = document.getElementById("realWeatherButton");
-//     realWeatherButton.value = getLatAndLon;
-// }
 
 const updateTempStyles = (currentTemp) => {
     const tempValueContainer = document.getElementById("tempValue");
@@ -106,8 +105,9 @@ const updateTempStyles = (currentTemp) => {
 }
 
 const updateGarden = (currentTemp) => {
+    
     const landscapeContainer = document.getElementById("landscape");
-    let landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+    let landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂";
     if ( currentTemp >= 80) {
         landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
     } else if (currentTemp >= 70) {
@@ -116,11 +116,13 @@ const updateGarden = (currentTemp) => {
         landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
     }
     landscapeContainer.textContent = landscape;
+    
 }
 
 const tempValueNum = document.getElementById("tempValue")
 
 const updateTemp = tempValue => {
+    
     const tempValueContainer = document.getElementById("tempValue");
     tempValueContainer.textContent = tempValue;
     updateTempStyles(tempValue);
