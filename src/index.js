@@ -44,13 +44,14 @@ const getWeather = () => {
         tempValue.textContent = state.temp;
         updateTemp(state.temp)
         updateGarden(state.temp);
+        updateGardenImage(state.temp);
     })
     .catch((error) => {
         console.log('Error getting the weather:', error);
     });
 };
 
-let tempValue = 71;
+let tempValue = 50;
 
 const updateSky = () => {
     const inputSky = document.getElementById("skySelect").value;
@@ -107,17 +108,31 @@ const updateTempStyles = (currentTemp) => {
 const updateGarden = (currentTemp) => {
     
     const landscapeContainer = document.getElementById("landscape");
-    let landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂";
+    // let landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂";
     if ( currentTemp >= 80) {
-        landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
+        // landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
     } else if (currentTemp >= 70) {
-        landscape = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
+        // landscape = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
     } else if (currentTemp >= 60) {
-        landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+        // landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
     }
     landscapeContainer.textContent = landscape;
     
 }
+
+const updateGardenImage = (currentTemp) => {
+    const landscapeImageContainer = document.getElementById("landscapeImage")
+    let landscapeImage = document.getElementById("landscapeImage").src="sun.jpg";
+    if (currentTemp >= 80){
+        landscapeImage = document.getElementById("landscapeImage").src = "desert.png";
+    } else if (currentTemp >= 70){
+        landscapeImage = document.getElementById("landscapeImage").src = "sun.jpg";
+    } else if (currentTemp>=60){
+        landscapeImage = document.getElementById("landscapeImage").src = "weather.jpeg";
+    }
+    landscapeImageContainer.textContent = landscapeImage;
+}
+
 
 const tempValueNum = document.getElementById("tempValue")
 
@@ -127,6 +142,7 @@ const updateTemp = tempValue => {
     tempValueContainer.textContent = tempValue;
     updateTempStyles(tempValue);
     updateGarden(tempValue);
+    updateGardenImage(tempValue);
 }
 
 const increaseTemp = () => {
@@ -167,4 +183,7 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
+
+
+
 

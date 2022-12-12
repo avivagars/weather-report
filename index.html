@@ -21,11 +21,11 @@
         <h2>Temperature</h2>
         <ul class="temperature__content">
             <ul class="temperature__controls">
-                <span id="increaseTempControl">⬆️</span>
-                <span id="decreaseTempControl">⬇️</span>
+                <span id="increaseTempControl" style="font-size: 40px;">🔼</span>
+                <span id="decreaseTempControl" style="font-size: 40px;">🔽</span>
             </ul>
             <span id="tempValue"></span>
-            <button id="realWeatherButton"> Get Real Weather</button>
+            <button id="realWeatherButton"> Get Current Weather</button>
             <span id="realTemp"></span>
         </section>
     </ul>
@@ -51,6 +51,7 @@
         <ul id="gardenContent" class="garden__content">
             <ul id="sky"></ul>
             <ul id="landscape"></ul>
+            <img id="landscapeImage" src="#"></ul>
         </ul>
     </section>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
@@ -60,20 +61,3 @@
 
 </html>
 
-<!-- <body>
-<main>
-    <h1>🦀 Welcome to my Crab Fan Site 🦀</h1>
-    <p>Here is my website where I post interesting facts about crabs.</p>
-
-    <section>
-    <button id="addCrabButton">Add Crab</button>
-    </section>
-
-    <section id="crabContainer">
-    <h2 id="crabCount">Crab Count: 0</h2>
-
-    </section>
-</main>
-<script src="src/index.js"></script>
-</body>
-</html> -->
