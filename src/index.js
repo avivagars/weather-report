@@ -43,7 +43,7 @@ const getWeather = () => {
         state.temp = Math.round(convertKtoF(weather.main.temp));
         tempValue.textContent = state.temp;
         updateTemp(state.temp)
-        updateGarden(state.temp);
+        // updateGarden(state.temp);
         updateGardenImage(state.temp);
     })
     .catch((error) => {
@@ -60,20 +60,43 @@ const updateSky = () => {
     let skyColor = "";
     if (inputSky === "Cloudy") {
         sky = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
-        skyColor = "cloudy";
+        // skyColor = "cloudy";
     } else if (inputSky === "Sunny") {
         sky = "☁️     ☁️   ☁️ ☀️ ☁️  ☁️";
-        skyColor = "sunny";
+        // skyColor = "sunny";
     } else if (inputSky === "Rainy") {
         sky = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧";
-        skyColor = "rainy";
+        // skyColor = "rainy";
     } else if (inputSky === "Snowy") {
         sky = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨";
-        skyColor = "snowy";
+        // skyColor = "snowy";
     }
     skyContainer.textContent = sky;
     const gardenContent = document.getElementById("gardenContent");
     gardenContent.classList = `garden__content ${skyColor}`;
+};
+
+const updateSkyBackground = () => {
+    const inputSky = document.getElementById("skySelect").value;
+    const skyContainer = document.querySelector("body");
+    // let sky = "";
+    let skyColor = "";
+    if (inputSky === "Cloudy") {
+        // sky = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
+        skyColor = "cloudy";
+    } else if (inputSky === "Sunny") {
+        // sky = "☁️     ☁️   ☁️ ☀️ ☁️  ☁️";
+        skyColor = "sunny";
+    } else if (inputSky === "Rainy") {
+        // sky = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧";
+        skyColor = "rainy";
+    } else if (inputSky === "Snowy") {
+        // sky = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨";
+        skyColor = "snowy";
+    }
+    // skyContainer.textContent = body;
+    const skyChange = document.querySelector("body");
+    gardenContent = `body ${skyColor}`;
 };
 
 const updateCityName = () => {
@@ -105,30 +128,30 @@ const updateTempStyles = (currentTemp) => {
     tempValueContainer.classList = color;
 }
 
-const updateGarden = (currentTemp) => {
+// const updateGarden = (currentTemp) => {
     
-    const landscapeContainer = document.getElementById("landscape");
-    // let landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂";
-    if ( currentTemp >= 80) {
-        // landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
-    } else if (currentTemp >= 70) {
-        // landscape = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
-    } else if (currentTemp >= 60) {
-        // landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
-    }
-    landscapeContainer.textContent = landscape;
+//     const landscapeContainer = document.getElementById("landscape");
+//     // let landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂";
+//     if ( currentTemp >= 80) {
+//         // landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
+//     } else if (currentTemp >= 70) {
+//         // landscape = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
+//     } else if (currentTemp >= 60) {
+//         // landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+//     }
+//     landscapeContainer.textContent = landscape;
     
-}
+// }
 
 const updateGardenImage = (currentTemp) => {
     const landscapeImageContainer = document.getElementById("landscapeImage")
-    let landscapeImage = document.getElementById("landscapeImage").src="sun.jpg";
+    let landscapeImage = document.getElementById("landscapeImage").src="snowHouse.png";
     if (currentTemp >= 80){
-        landscapeImage = document.getElementById("landscapeImage").src = "desert.png";
+        landscapeImage = document.getElementById("landscapeImage").src = "summerhouse.png";
     } else if (currentTemp >= 70){
         landscapeImage = document.getElementById("landscapeImage").src = "sun.jpg";
     } else if (currentTemp>=60){
-        landscapeImage = document.getElementById("landscapeImage").src = "weather.jpeg";
+        landscapeImage = document.getElementById("landscapeImage").src = "fallHouse.png";
     }
     landscapeImageContainer.textContent = landscapeImage;
 }
@@ -141,7 +164,7 @@ const updateTemp = tempValue => {
     const tempValueContainer = document.getElementById("tempValue");
     tempValueContainer.textContent = tempValue;
     updateTempStyles(tempValue);
-    updateGarden(tempValue);
+    // updateGarden(tempValue);
     updateGardenImage(tempValue);
 }
 
@@ -173,9 +196,13 @@ const registerEventHandlers = () => {
     const cityNameResetBtn = document.getElementById("cityNameReset");
     cityNameResetBtn.addEventListener("click", resetCityName);
 
-    updateSky();
+    // updateSky();
+    // const skySelect = document.getElementById("skySelect");
+    // skySelect.addEventListener("change", updateSky);
+
+    updateSkyBackground();
     const skySelect = document.getElementById("skySelect");
-    skySelect.addEventListener("change", updateSky);
+    skySelect.addEventListener("change", updateSkyBackground);
 
     const currentTempButton = document.getElementById('realWeatherButton');
     currentTempButton.addEventListener('click', getLatAndLon);

@@ -77,6 +77,8 @@
     text-align: center;
     margin-left: 5%;
     align-self: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
     
     
 
@@ -87,7 +89,6 @@
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto auto auto;
     grid-gap: 1rem;
-    margin-right: 2rem;
     text-align: center;
     align-items: center;
     margin-left: auto;
@@ -100,7 +101,6 @@
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto auto auto;
     grid-gap: 1rem;
-    /* margin-right: rem; */
     padding-left: 8rem;
     padding-right: 8rem;
     padding-bottom: 6rem;
@@ -119,6 +119,7 @@
     grid-column: 2;
     text-align: center;
     align-self: center;
+    margin-top: 1rem;
   }
   
   .temperature__content {
