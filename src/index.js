@@ -56,16 +56,16 @@ const updateSky = () => {
     let sky = "";
     if (inputSky === "Cloudy") {
         sky = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
-        document.body.style.background = "#91a0b1";
+        document.body.style.backgroundImage = "url('images/gray-gradient.jpg')";
     } else if (inputSky === "Sunny") {
         sky = "☁️     ☁️   ☁️ ☀️ ☁️  ☁️";
-        document.body.style.background = "#fbc66a";
+        document.body.style.backgroundImage = "url('images/yellow-gradient.jpg')";
     } else if (inputSky === "Rainy") {
         sky = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧";
-        document.body.style.background = "#364b72";
+        document.body.style.backgroundImage = "url('images/blue-gradient.jpg')";
     } else if (inputSky === "Snowy") {
         sky = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨";
-        document.body.style.background = "#bbeaf5";
+        document.body.style.backgroundImage = "url('images/white-gradient.jpg')";
     }
     skyContainer.textContent = sky;
 };
@@ -102,13 +102,13 @@ const updateTempStyles = (currentTemp) => {
 
 const updateGardenImage = (currentTemp) => {
     const landscapeImageContainer = document.getElementById("landscapeImage")
-    let landscapeImage = document.getElementById("landscapeImage").src="snowHouse.png";
+    let landscapeImage = document.getElementById("landscapeImage").src="images/snowHouse.png";
     if (currentTemp >= 80){
-        landscapeImage = document.getElementById("landscapeImage").src = "summerHouse.png";
+        landscapeImage = document.getElementById("landscapeImage").src = "images/summerHouse.png";
     } else if (currentTemp >= 70){
-        landscapeImage = document.getElementById("landscapeImage").src = "springHouse.png";
+        landscapeImage = document.getElementById("landscapeImage").src = "images/springHouse.png";
     } else if (currentTemp>=60){
-        landscapeImage = document.getElementById("landscapeImage").src = "fallHouse.png";
+        landscapeImage = document.getElementById("landscapeImage").src = "images/fallHouse.png";
     }
     landscapeImageContainer.textContent = landscapeImage;
 }

@@ -12,16 +12,15 @@
 </head>
 
 <body>
-    <header class="header__header">
-        <!-- <ul id="sky"></ul> -->
+    <header class="header">
         <h1>🌤 Weather Report</h1> 
-        <span> 📍City of:
-            <span id="headerCityName" class="header__city-name"></span></span>
+        <span id="subheading"> 📍City of:
+            <span id="headerCityName"></span></span>
     </header>
-    <section class="temperature__section">
+    <section class="temperatureSection">
         <h2>Temperature</h2>
-        <ul class="temperature__content">
-            <ul class="temperature__controls">
+        <ul class="temperatureContent">
+            <ul class="temperatureControls">
                 <span id="increaseTempControl" style="font-size: 40px;">🔼</span>
                 <span id="decreaseTempControl" style="font-size: 40px;">🔽</span>
             </ul>
@@ -31,7 +30,7 @@
         </section>
     </ul>
     </section>
-    <section class="sky__section">
+    <section class="skySection">
         <h2>Sky</h2>
         <select id="skySelect">
             <option>Sunny</option>
@@ -41,15 +40,14 @@
         </select>
     </section>
 
-    <section class="city-name__section">
+    <section class="cityNameSection">
         <h2>City Name</h2>
         <input type="text" id="cityNameInput" value="Boulder" />
         <button id="cityNameReset" class="city-name__reset-btn">Reset</button>
     </section>
 
-    <section class="garden__section">
-        <!-- <h2>Weather Garden</h2> -->
-        <ul id="gardenContent" class="garden__content">
+    <section class="gardenSection">
+        <ul id="gardenContent" class="garden">
             <ul id="sky"></ul>
             <ul id="landscape"></ul>
             <img id="landscapeImage" src="#"></ul>
