@@ -1,6 +1,7 @@
+
 const state = {
     city: "Boulder",
-    temp: 55,
+    temp: 0,
     lat: 40.0149856,
     lon: -105.270545,
 };
@@ -48,7 +49,7 @@ const getWeather = () => {
     });
 };
 
-let tempValue = 50;
+
 
 const updateSky = () => {
     const inputSky = document.getElementById("skySelect").value;
@@ -113,6 +114,7 @@ const updateGardenImage = (currentTemp) => {
     landscapeImageContainer.textContent = landscapeImage;
 }
 
+let tempValue = state.temp;
 
 const updateTemp = tempValue => {
     
@@ -120,16 +122,16 @@ const updateTemp = tempValue => {
     tempValueContainer.textContent = tempValue;
     updateTempStyles(tempValue);
     updateGardenImage(tempValue);
-}
+};
 
 const increaseTemp = () => {
-    tempValue += 1;
-    updateTemp(tempValue);
+    state.temp += 1;
+    updateTemp(state.temp);
 };
 
 const decreaseTemp = () => {
-    tempValue -= 1;
-    updateTemp(tempValue);
+    state.temp -= 1;
+    updateTemp(state.temp);
 };
 
 const registerEventHandlers = () => {
@@ -154,6 +156,8 @@ const registerEventHandlers = () => {
 
     const currentTempButton = document.getElementById('realWeatherButton');
     currentTempButton.addEventListener('click', getLatAndLon);
+
+    window.addEventListener("load", getLatAndLon);
 
 };
 
